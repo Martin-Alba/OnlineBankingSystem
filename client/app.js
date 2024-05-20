@@ -50,14 +50,17 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 const data = await response.json();
                 console.log('Exito:', data);
-
+                /*Save user in localStorage*/
                 action === 'login' ? sessionStorage.setItem('username', jsonObject.username) : sessionStorage.clear();
-
-                alert(data.message);
+                /*Redirect*/
+                location.href = "/pages/home.html";
             } else {
                 const errorData = await response.json();
                 console.error('Error:', errorData);
+
+                alert(errorData.message);
             }
+            
         } catch (error) {
             console.error('Error de red:', error);
         }
