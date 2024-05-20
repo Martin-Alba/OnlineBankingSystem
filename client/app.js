@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 const data = await response.json();
                 console.log('Exito:', data);
+                alert(data.message);
             } else {
                 const errorData = await response.json();
                 console.error('Error:', errorData);
