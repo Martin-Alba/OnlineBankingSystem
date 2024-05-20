@@ -50,6 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 const data = await response.json();
                 console.log('Exito:', data);
+
+                action === 'login' ? sessionStorage.setItem('username', jsonObject.username) : sessionStorage.clear();
+
                 alert(data.message);
             } else {
                 const errorData = await response.json();
