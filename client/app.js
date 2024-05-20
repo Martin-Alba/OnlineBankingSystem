@@ -28,6 +28,7 @@ function formDataToJson(formData) {
     return jsonObject;
 }
 
+/*LOgin and Sign Up*/
 document.addEventListener('DOMContentLoaded', () => {
     const formulario = document.getElementById('userinfo');
 
