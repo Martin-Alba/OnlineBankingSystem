@@ -29,22 +29,23 @@
 }
 .form-box h1{
     font-size: 30px;
-    margin-bottom: 60px;
+    margin-bottom: 10px;
     color: #fff;
     position: relative;
 }
-.form-box h1::after{
-    content: '';
-    width: 30px;
-    height: 4px;
-    border-radius: 3px;
-    background: #fff;
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform:translateX(-50%)
+.form-box .balance>h4{
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #fff;
+    position: relative;
+    font-weight: 400;
+    border-radius: 5px;
+    width: 70%;
 }
-
+.balance{
+    display: flex;
+    justify-content: center;
+}
 .input-field{
     background: #eaeaea;
     margin: 15px 0;
