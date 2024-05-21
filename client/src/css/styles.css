@@ -27,7 +27,7 @@
     box-shadow: 0 4px 30px rgba(36, 27, 90, 0.1);
     border: 1px solid rgba(255, 195, 255, 0.2);
 }
-.form-box h1{
+.form-box h2{
     font-size: 30px;
     margin-bottom: 10px;
     color: #fff;
@@ -46,6 +46,11 @@
     display: flex;
     justify-content: center;
 }
+.buttons-container{
+    display: flex;
+    justify-content: space-around;
+}
+
 .input-field{
     background: #eaeaea;
     margin: 15px 0;
