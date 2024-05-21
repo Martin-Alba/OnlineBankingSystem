@@ -42,7 +42,7 @@ export const Login = async (req, res) => {
         user.lockUntil = null;
 
         await UserController.updateUser(user);
-        res.status(200).json({ success: true, message: 'Login success' })
+        res.status(200).json({ success: true, message: 'Login success', id: user._id })
     } catch (err) {
         console.error(`Error /login: ${err}`)
         res.status(500).json({ message: 'Error logging in' })
