@@ -4,8 +4,8 @@
   "description": "Online Banking System",
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch --env-file=.env index.js",
-    "start": "node --env-file=.env index.js"
+    "dev": "node --watch --env-file=.env server/index.js",
+    "start": "node --env-file=.env server/index.js"
   },
   "type": "module",
   "author": "Martin Alba, Eduardo Vazzoler",
@@ -17,5 +17,11 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "standard": "^17.1.0"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
   }
 }

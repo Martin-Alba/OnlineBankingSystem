@@ -11,4 +11,4 @@ router.post('/withdraw', OperationController.withdrawMoney)
 
 router.post('/transfer', OperationController.transferMoney)
 
-export default router;
+export default router
