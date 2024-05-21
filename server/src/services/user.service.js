@@ -92,7 +92,7 @@ export const updateUser = async (updateUser) => {
         }
 
     } catch (err) {
-        console.error(`Erro updateUser: ${err}`)
+        console.error(`Error updateUser: ${err}`)
         throw new Error('Error updating user')
     }
 }
