@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded',  () => {
 })
 
 const jsonUrl = `http://localhost:${PORT}/api/banking-operation/balance/${id}`;
-
 // Fetch the JSON data
 fetch(jsonUrl)
   .then(response => response.json())
