@@ -1,37 +1,29 @@
 const PORT = 9998;
 
+// Get the username from the session storage
+document.addEventListener('DOMContentLoaded',  () => {
+    const id = sessionStorage.getItem('username');
+    console.log(id);
+})
+
 const jsonUrl = `http://localhost:${PORT}/api/banking-operation/balance/${id}`;
 
 // Fetch the JSON data
 fetch(jsonUrl)
-    .then((response) => response.json())
-    .then((data) => {
-        const formattedData = formatData(data);
-        displayData(formattedData);
-    })
-    .catch((error) => {
-        console.log("Error:", error);
-    });
+  .then(response => response.json())
+  .then(data => {
+    // Display the balance
+    displayBalance(data.balance);
+  })
+  .catch(error => {
+    console.log('Error:', error);
+  });
 
+// Function to display the balance
+function displayBalance(balance) {
+  // Find the element where you want to display the balance
+  const balanceElement = document.getElementById('totalBalance');
 
-function formatData(data) {
-    const formattedData = data.map((item) => {
-    return {
-      amount: item.amount.toFixed(2), // Format the amount as a currency
-    };
-    });
-
-    return formattedData;
-}
-
-// Function to display the data on the page
-function displayData(data) {
-    const container = document.getElementById("totalBalance");
-    container.innerHTML = "";
-
-    data.forEach((item) => {
-    const div = document.createElement("div");
-    div.textContent = `Amount: $${item.amount}`;
-    container.appendChild(div);
-    });
+  // Update the balance element with the retrieved balance
+  balanceElement.textContent = `Balance: $${balance}`;
 }
