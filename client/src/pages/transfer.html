@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transfer</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <selection class="container">
+    <article class="form-box">
+      <h2 id="title">Username</h2>
+      <div class="balance">
+        <h4>$2000</h4>
+      </div>
+      <div class="buttons-wrapper">
+        <form action="" id="userinfo">
+          <div class="input-group">
+            <div class="input-field">
+              <input type="text" placeholder="Transfer from" id="username" name="username" disabled>
+            </div>
+            <div class="input-field">
+              <input type="text" placeholder="Transfer To" id="transferToUsername" name="transferToUsername" required>
+            </div>
+
+            <div class="input-field">
+              <input type="number" placeholder="Amount" id="transferAmount" name="transferAmount" required>
+            </div>
+          </div>
+          <div class="btn-field">
+            <button type="submit" id="transferSubmit" data-action="transferSubmit">Transfer</button>
+            <button type="button" class="disable"><a href="./home.html">Go back</a></button>
+          </div>
+        </form>
+      </div>
+    </article>
+  </selection>
+  <script src="../scripts/transfer.js"></script>
+</body>
+
+</html>

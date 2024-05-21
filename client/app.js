@@ -53,14 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 /*Save user in localStorage*/
                 action === 'login' ? sessionStorage.setItem('username', jsonObject.username) : sessionStorage.clear();
                 /*Redirect*/
-                location.href = "/pages/home.html";
+                location.href = "/src/pages/home.html";
             } else {
                 const errorData = await response.json();
                 console.error('Error:', errorData);
 
                 alert(errorData.message);
             }
-            
+
         } catch (error) {
             console.error('Error de red:', error);
         }
