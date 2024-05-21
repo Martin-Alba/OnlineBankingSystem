@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import { hashPassword } from '../utils/utils.js';
+import { v4 as uuidv4 } from 'uuid';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -63,6 +64,7 @@ export const createUser = async (username, password) => {
         const hashedPassword = await hashPassword(password);
 
         const user = {
+            id: uuidv4(),
             username: username,
             password: hashedPassword,
             failedLoginAttempts: 0,
