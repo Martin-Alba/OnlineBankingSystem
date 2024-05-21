@@ -35,7 +35,7 @@ Login with your account
 Retrieve the balance of a user by their ID.
 
 - **Method:** GET
-- **Endpoint:** `http://localhost:${PORT}/api/banking-operation/balance/${:id}`
+- **Endpoint:** `http://localhost:${PORT}/api/banking-operation/balance/${id}`
 
 
 ### Deposit
