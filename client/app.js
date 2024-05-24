@@ -1,21 +1,22 @@
 const PORT = 9998
 
-function handleButtonClick (titleValue, buttonToAddClass, buttonToRemoveClass) {
-  title.innerHTML = titleValue
+function handleButtonClick (titleElement, titleValue, buttonToAddClass, buttonToRemoveClass) {
+  titleElement.innerHTML = titleValue
   buttonToAddClass.classList.add('disable')
   buttonToRemoveClass.classList.remove('disable')
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+  const title = document.getElementById('title')
   const signUpBtn = document.getElementById('signUpBtn')
   const signInBtn = document.getElementById('signInBtn')
 
   signInBtn.onclick = function () {
-    handleButtonClick('Sign In', signUpBtn, signInBtn)
+    handleButtonClick(title, 'Sign In', signUpBtn, signInBtn)
   }
 
   signUpBtn.onclick = function () {
-    handleButtonClick('Sign Up', signInBtn, signUpBtn)
+    handleButtonClick(title, 'Sign Up', signInBtn, signUpBtn)
   }
 })
 
@@ -46,24 +47,24 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify(jsonObject)
       })
 
-      console.log(response)
       if (response.ok) {
         const data = await response.json()
-        console.log('Exito:', data)
         /* Save user in localStorage */
-        const storageDataLogin = ()=>{
-          sessionStorage.setItem('username', jsonObject.username)
-          sessionStorage.setItem('id', data.id)
+        const storageDataLogin = () => {
+          window.sessionStorage.setItem('username', jsonObject.username)
+          window.sessionStorage.setItem('id', data.id)
+          window.location.href = '/src/pages/home.html'
         }
-        action === 'login' ? storageDataLogin() : sessionStorage.clear()
-        
+        const storageDataRegister = () => {
+          window.sessionStorage.clear()
+          window.alert('User created successfully')
+        }
+        action === 'login' ? storageDataLogin() : storageDataRegister()
+
         /* Redirect */
-        location.href = '/src/pages/home.html'
       } else {
         const errorData = await response.json()
-        console.error('Error:', errorData)
-
-        alert(errorData.message)
+        window.alert(errorData.message)
       }
     } catch (error) {
       console.error('Error de red:', error)
