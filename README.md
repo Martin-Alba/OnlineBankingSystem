@@ -41,7 +41,7 @@ Retrieve the balance of a user by their ID.
 ### Deposit
 Deposit funds into a user's account.
 
-- **Method:** GET
+- **Method:** POST
 - **Endpoint:** `http://localhost:${PORT}/api/banking-operation/deposit`
 - **Body:**
   ```json
