@@ -1,6 +1,6 @@
-const PORT=9998
-const id = sessionStorage.getItem('id')
-const username = sessionStorage.getItem('username')
+const PORT = 9998
+const id = window.sessionStorage.getItem('id')
+const username = window.sessionStorage.getItem('username')
 
 const jsonUrl = `http://localhost:${PORT}/api/banking-operation/balance/${id}`
 
