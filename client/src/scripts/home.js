@@ -1,44 +1,33 @@
-const PORT = 9998
+const PORT=9998
+const id = sessionStorage.getItem('id')
+const username = sessionStorage.getItem('username')
+
 const jsonUrl = `http://localhost:${PORT}/api/banking-operation/balance/${id}`
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const username = sessionStorage.getItem('username')
-
-  function formatData (data) {
-    const formattedData = data.map(item => {
-      return {
-        id: item.id
-      }
-    })
-    return formattedData
-  }
-
   // Fetch the JSON data
   try {
     const response = await fetch(jsonUrl, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
-      },
-      body: JSON.parse(formatData(data))
+      }
     })
+    console.log(response)
+    const data = await response.json()
+    const balance = data.balance
+    console.log(`Balance: ${balance}`)
 
-    if (response.ok) {
-      const data = await response.json()
-      console.log(data)
-    } else {
-      const errorData = await response.json()
-      console.error(errorData)
+    const displayUsername = (username) => {
+      document.getElementById('usernameGlobal').innerText = username
     }
+    displayUsername(username)
+    const displayBalance = (balance) => {
+      console.log(`Balance display: ${balance}`)
+      document.getElementById('totalBalance').innerText = `$ ${balance}`
+    }
+    displayBalance(balance)
   } catch (error) {
     console.error(error)
   }
 })
-
-// Function to display the balance
-function displayBalance (balance) {
-  // Find the element where you want to display the balance
-  const balanceElement = document.getElementById('totalBalance')
-  // Update the balance element with the retrieved balance
-  balanceElement.textContent = `Balance: $${balance}`
-}

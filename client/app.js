@@ -45,11 +45,18 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         body: JSON.stringify(jsonObject)
       })
+
+      console.log(response)
       if (response.ok) {
         const data = await response.json()
         console.log('Exito:', data)
         /* Save user in localStorage */
-        action === 'login' ? sessionStorage.setItem('username', jsonObject.username) : sessionStorage.clear()
+        const storageDataLogin = ()=>{
+          sessionStorage.setItem('username', jsonObject.username)
+          sessionStorage.setItem('id', data.id)
+        }
+        action === 'login' ? storageDataLogin() : sessionStorage.clear()
+        
         /* Redirect */
         location.href = '/src/pages/home.html'
       } else {
