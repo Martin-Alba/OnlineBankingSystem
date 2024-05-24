@@ -8,7 +8,8 @@ export const depositMoney = async (req, res) => {
     if (!user) return res.status(404).json({ success: false, message: 'User not found' })
     if (!amount) return res.status(404).json({ success: false, message: 'Invalid amount' })
 
-    user.balance += amount
+    const depositAmount = parseFloat(amount)
+    user.balance += depositAmount
     await UserController.updateUser(user)
 
     return res.status(200).json({ success: true, message: 'Money deposited successfully' })
