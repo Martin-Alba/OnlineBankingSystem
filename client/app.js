@@ -49,10 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (response.ok) {
         const data = await response.json()
-        /* Save user in localStorage */
+
         const storageDataLogin = () => {
           window.sessionStorage.setItem('username', jsonObject.username)
           window.sessionStorage.setItem('id', data.id)
+          window.sessionStorage.setItem('token', data.token)
           window.location.href = '/src/pages/home.html'
         }
         const storageDataRegister = () => {
