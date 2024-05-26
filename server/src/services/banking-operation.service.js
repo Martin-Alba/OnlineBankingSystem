@@ -70,11 +70,10 @@ export const transferMoney = async (req, res) => {
     if (!toUser) return res.status(404).json({ success: false, message: 'To user not found' })
     if (fromUser.balance < amount) return res.status(400).json({ success: false, message: 'Insufficient balance' })
 
-    const fromUserAmount = parseFloat(fromUser.balance)
-    const toUserAmount = parseFloat(toUser.balance)
-    
-    fromUser.balance -= fromUserAmount
-    toUser.balance += toUserAmount
+    const transferAmount = parseFloat(amount)
+
+    fromUser.balance -= transferAmount
+    toUser.balance += transferAmount
 
     await UserController.updateUser(fromUser)
     await UserController.updateUser(toUser)
