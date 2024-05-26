@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken'
 import UserController from '../controllers/user.controller.js'
 import { comparePassword } from '../utils/utils.js'
 
@@ -42,7 +43,8 @@ export const Login = async (req, res) => {
     user.lockUntil = null
 
     await UserController.updateUser(user)
-    res.status(200).json({ success: true, message: 'Login success', id: user.id })
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' })
+    res.status(200).json({ success: true, message: 'Login success', id: user.id, token })
   } catch (err) {
     console.error(`Error /login: ${err}`)
     res.status(500).json({ message: 'Error logging in' })
