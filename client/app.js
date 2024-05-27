@@ -1,7 +1,7 @@
 const PORT = 9998
 
-function handleButtonClick (titleElement, titleValue, buttonToAddClass, buttonToRemoveClass) {
-  titleElement.innerHTML = titleValue
+const handleButtonClick = (titleElement, titleValue, buttonToAddClass, buttonToRemoveClass) => {
+  titleElement.innerText = titleValue
   buttonToAddClass.classList.add('disable')
   buttonToRemoveClass.classList.remove('disable')
 }
@@ -20,12 +20,52 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 })
 
-function formDataToJson (formData) {
-  const jsonObject = {}
+const formDataToJson = (formData) => {
+  const dataForm = {}
   for (const [key, value] of formData.entries()) {
-    jsonObject[key] = value
+    dataForm[key] = value
   }
-  return jsonObject
+  return dataForm
+}
+
+// handleFetch => solicitud del fetch al endpoint
+const handleFetch = async (action, dataForm) => {
+  try {
+    const response = await fetch(`http://localhost:${PORT}/api/user/${action}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dataForm)
+    })
+    return response
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+// handleResponse => captura como json la respuesta (success, error, 404)
+const handleResponse = async (response, action, dataForm) => {
+  if (!response.ok) {
+    const errorData = await response.json()
+    window.alert(errorData.message)
+    return
+  }
+
+  const data = await response.json()
+  action === 'login' ? storageDataLogin(data, dataForm) : storageDataRegister()
+}
+// storageDataLogin => guardar los datos necesarios en el session
+const storageDataLogin = (data, dataForm) => {
+  window.sessionStorage.setItem('username', dataForm.username)
+  window.sessionStorage.setItem('id', data.id)
+  window.sessionStorage.setItem('token', data.token)
+  window.location.href = '/src/pages/home.html'
+}
+// storageDataRegister => clear() alert success
+const storageDataRegister = () => {
+  window.sessionStorage.clear()
+  window.alert('User created successfully')
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,39 +74,12 @@ document.addEventListener('DOMContentLoaded', () => {
   formulario.addEventListener('submit', async (event) => {
     event.preventDefault()
     const formData = new FormData(formulario)
-    const jsonObject = formDataToJson(formData)
+    const dataForm = formDataToJson(formData)
 
     const action = event.submitter.dataset.action
-
     try {
-      const response = await fetch(`http://localhost:${PORT}/api/users/${action}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(jsonObject)
-      })
-
-      if (response.ok) {
-        const data = await response.json()
-
-        const storageDataLogin = () => {
-          window.sessionStorage.setItem('username', jsonObject.username)
-          window.sessionStorage.setItem('id', data.id)
-          window.sessionStorage.setItem('token', data.token)
-          window.location.href = '/src/pages/home.html'
-        }
-        const storageDataRegister = () => {
-          window.sessionStorage.clear()
-          window.alert('User created successfully')
-        }
-        action === 'login' ? storageDataLogin() : storageDataRegister()
-
-        /* Redirect */
-      } else {
-        const errorData = await response.json()
-        window.alert(errorData.message)
-      }
+      const response = await handleFetch(action, dataForm)
+      await handleResponse(response, action, dataForm)
     } catch (error) {
       console.error('Error de red:', error)
     }
