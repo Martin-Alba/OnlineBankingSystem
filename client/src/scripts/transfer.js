@@ -4,18 +4,15 @@ const username = window.sessionStorage.getItem('username')
 const token = window.sessionStorage.getItem('token')
 const fromUsername = username
 
-const jsonUrl = `http://localhost:${PORT}/api/banking-operation/balance/${id}`
-const jsonUrlTransfer = `http://localhost:${PORT}/api/banking-operation/transfer`
-
 if (!token) window.location.href = '/index.html'
 
 const jsonUrlBalance = async () => {
   try {
-    const response = await fetch(jsonUrl, {
+    const response = await fetch(`http://localhost:${PORT}/api/banking-operation/balance/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
+        Authorization: `Bearer ${token}`
       }
     })
     const data = await response.json()
@@ -28,11 +25,11 @@ const jsonUrlBalance = async () => {
 
 const fetchTransfer = async (amount, toUsername) => {
   try {
-    const sendTransference = await fetch(jsonUrlTransfer, {
+    await fetch(`http://localhost:${PORT}/api/banking-operation/transfer`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
+        Authorization: `Bearer ${token}`
       },
       body: JSON.stringify({
         fromUsername,
