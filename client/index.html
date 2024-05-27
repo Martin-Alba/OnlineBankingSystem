@@ -13,30 +13,30 @@
 
 <body>
     <section class="container">
+        <h5 class="logoOBS">ONLINE BANKING SYSTEM</h5>
+        <div class="form-boxBackground">
+            <h1 id="title">WELCOME</h1>
         <article class="form-box">
-            <h1 id="title">Sign Up</h1>
-
-            <form action="" id="userinfo">
-
+            <form class="form" action="" id="userinfo">
                 <div class="input-group">
                     <div class="input-field">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="User Name" id="username" name="username" required>
-                    </div>
+                        <i class="fa-regular fa-user icon"></i>
+                        <input type="text" placeholder="username" id="username" name="username" required>
 
-                    <div class="input-field ">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Password" id="password" name="password" required>
-                    </div>
 
-                    <p>Forgot Password? <a href="#">Click Here</a></p>
+                        <i class="fa-regular fa-eye icon"></i>
+                        <input type="password" placeholder="password" id="password" name="password" required>
+                    </div>
                 </div>
                 <div class="btn-field">
-                    <button type="submit" id="signUpBtn" data-action="register">Sign Up</button>
-                    <button type="submit" id="signInBtn" class="disable" data-action="login">Sign In</button>
+                    <button class="signUpBtn" type="submit" id="signUpBtn" data-action="register">Sign Up</button>
+                    <span><p class="betweenButtons">or</p></span>
+                    <button type="submit" id="signInBtn" class="disable signInBtn" data-action="login">Sign In</button>
                 </div>
             </form>
         </article>
+
+        </div>
     </section>
     <script src="./app.js"></script>
 </body>
