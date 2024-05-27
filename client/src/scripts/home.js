@@ -3,23 +3,27 @@ const id = window.sessionStorage.getItem('id')
 const username = window.sessionStorage.getItem('username')
 const token = window.sessionStorage.getItem('token')
 
-const jsonUrl = `http://localhost:${PORT}/api/banking-operation/balance/${id}`
-
 if (!token) window.location.href = '/index.html'
 
-document.addEventListener('DOMContentLoaded', async () => {
-  // Fetch the JSON data
+const balanceFetch = async () => {
   try {
-    const response = await fetch(jsonUrl, {
+    const response = await fetch(`http://localhost:${PORT}/api/banking-operation/balance/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
+        Authorization: `Bearer ${token}`
       }
     })
-    console.log(response)
     const data = await response.json()
-    const balance = data.balance
+    return data.balance
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const balance = await balanceFetch()
     console.log(`Balance: ${balance}`)
 
     const displayUsername = (username) => {
