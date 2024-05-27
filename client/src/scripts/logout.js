@@ -1,5 +1,11 @@
-// logica para logout
+window.addEventListener('DOMContentLoaded', (e) => {
+  const logoutButton = document.createElement('button')
+  logoutButton.textContent = 'Logout'
+  logoutButton.addEventListener('click', () => {
+    window.sessionStorage.clear()
+    window.location.href = '/index.html'
+  })
 
-// => Limpiar sessionStorage
-// => Redirigir a index.html
-// => Mostrar mensaje de despedida (optional)
+  const logoutContainer = document.querySelector('.btn-logout')
+  logoutContainer.appendChild(logoutButton)
+})
