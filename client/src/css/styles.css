@@ -5,6 +5,10 @@
     box-sizing: border-box;
     font-family: 'IBM Plex Sans', 'Poppins', sans-serif;
 }
+span button{
+    background-color: transparent;
+    border: none;
+}
 .container{
     width: 100%;
     height: 100vh;
@@ -123,27 +127,148 @@
     box-shadow: 0px -2px 9px rgba(0, 0, 0, 0.08);
     cursor: pointer;
 }
+/*ends index page*/
 
-.form-box .balance>h4{
-    font-size: 20px;
-    margin-bottom: 30px;
-    color: #fff;
-    position: relative;
+/*starts home page*/
+#usernameGlobal{ /*global style username*/
+    font-size: 14px;
     font-weight: 400;
-    border-radius: 5px;
-    width: 70%;
+    color: #CBCFD2;
+    padding-left:11px ;
+    text-transform: uppercase;
+}
+#totalBalance{ /*global style total balance*/
+    font-size: 16px;
+    font-weight: 500;
+    font-style: italic;
+}
+.container-background{ /*contains both, avatar and logout*/
+    width: 370px;
+    height: 481px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-61%);
+    background: linear-gradient(35deg, rgba(125,73,248,0.75), rgba(94,27,74,0.75));
+    border-radius: 15px;
+    box-shadow: 0px -2px 9px rgba(0, 0, 0, 0.08);
+    display: flex;
+}
+.avatar img{
+    width: 48px;
+    height: 48px;
+}
+.items-container{ /*contains avatar and username*/
+    width: 100%;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 16px;
+}
+.logoutContainer{ /*contains the logout button*/
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 85px;
+    padding-right: 16px;
 }
 
-
-
+/*starts top container*/
 .balance{
     display: flex;
+    flex-direction: column;
+    width: 130px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.40);
+    backdrop-filter: blur(8px);
+    border-radius: 7px;
     justify-content: center;
+    padding-left: 29px;
+    position: absolute;
+    top: -25px;
+    left: 0;
+    margin-left: 16px;
 }
+.balance p{
+    font-size: 16px;
+    color: #202327;
+    font-weight: 500;
+}
+
+/*cards container*/
+.cards-container{
+    position: relative;
+    background-color: #fff;
+}
+.card1{
+    position: absolute;
+    top: -20px;
+    left: -159px;
+    opacity: .55;
+    filter: blur(1.5px);
+}
+.card2{
+    position: absolute;
+    top: -20px;
+    left: -184px;
+}
+.card3{
+    position: absolute;
+    top: -20px;
+    left: -134px;
+    opacity: .35;
+    filter: blur(2px);
+}
+
+
+
+
+/*buttons container*/
 .buttons-container{
     display: flex;
-    justify-content: space-around;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 35px;
 }
+.buttons-wrapper{
+    height: 60px;
+    width: 60px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(8px);
+    box-shadow: 0px -2px 9px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0px 16px 0px 16px;
+}
+.buttons-wrapper button{
+    background:transparent;
+    border: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 form p{
