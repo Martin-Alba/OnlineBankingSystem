@@ -4,6 +4,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
   logoutIcon.src = '../assets/material-symbols_logout.png'
   logoutIcon.width = '34'
   logoutIcon.height = '34'
+  logoutIcon.style.cursor = 'pointer'
   logoutButton.appendChild(logoutIcon)
 
   logoutButton.addEventListener('click', () => {
