@@ -10,25 +10,40 @@
 
 <body>
   <section class="container">
-    <article class="form-box">
-      <h2 id="usernameGlobal"></h2>
+    <h5 class="logoOBS">ONLINE BANKING SYSTEM</h5>
+    <div class="container-background">
+      <div class="items-container">
+        <span class="avatar"><img src="../assets/avatar.png" alt="avatar"></span>
+        <h2 id="usernameGlobal"></h2>
+      </div>
+
+      <div class="logoutContainer">
+        <span class="btn-logout"></span>
+      </div>
+    </div>
+
+    <div class="form-boxBackground">
+    <article class="form-box formDeposit">
       <div class="balance">
+        <p class="balance-text">BALANCE</p>
         <h4 id="totalBalance"></h4>
       </div>
-      <div class="buttons-wrapper">
-        <form action="" id="userinfoDeposit">
+
+        <form class="depositInputForm" action="" id="userinfoDeposit">
           <div class="input-group">
             <div class="input-field">
+              <h2 class="sectionName">DEPOSIT</h2>
               <input type="number" placeholder="Amount to deposit" id="depositAmount" name="depositAmount" required>
             </div>
+
           </div>
           <div class="btn-field">
-            <button type="submit" id="depositSubmit" data-action="depositSubmit">Deposit</button>
-            <button type="button" class="disable"><a href="./home.html">Go back</a></button>
+            <button type="submit" class="acceptBtn" id="depositSubmit" data-action="depositSubmit">CONFIRM</button>
+            <button type="button" class="goBack"><a href="./home.html">CANCEL</a></button>
           </div>
         </form>
-      </div>
     </article>
+    </div>
   </section>
   <script src="../scripts/deposit.js"></script>
   <script src="../scripts/logout.js"></script>
