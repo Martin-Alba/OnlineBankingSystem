@@ -1,38 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'IBM Plex Sans', 'Poppins', sans-serif;
 }
 .container{
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(72, 72, 73, 0.7),rgba(20, 20, 20, 0.7)), url(../assets/background.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
+    background-image: url(../assets/gradientBackground.jpg);
     background-size: cover;
     position: relative;
 }
-.form-box{
-    width: 90%;
-    max-width: 450px;
+.logoOBS{
+    padding: 45px 0px 0px 55px;
+    color: #fff;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+
+}
+.form-boxBackground{
+    background: linear-gradient(180deg, rgba(81,39,95,0.75), rgba(59,23,145,0.75));
+    width: 100%;
+    max-width: 370px;
+    max-height: 444px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    padding: 50px 60px 70px;
-    text-align: center;
-    background: rgba(255, 195, 255, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(36, 27, 90, 0.1);
-    border: 1px solid rgba(255, 195, 255, 0.2);
+    border-radius: 15px;
+    border: 1px solid hsla(0, 0%, 100%, 0.13);
 }
-.form-box h2{
-    font-size: 30px;
-    margin-bottom: 10px;
+.form-boxBackground h1 {
     color: #fff;
-    position: relative;
+    font-size: 24px;
+    font-weight: 100;
+    text-align: center;
+    padding: 13.3px 0px 15px 0px;
 }
+.form-box{
+    width: 100%;
+    padding: 0px 41px 0px 41px;
+    justify-content: center;
+    display: flex;
+    width: 370px;
+    height: 378px;
+    border-radius: 15px;
+    background: linear-gradient(110deg, rgba(125,73,248,0.75), rgba(94,27,74,0.75));
+    padding-top: 75px;
+    box-shadow: 0px -2px 9px rgba(0, 0, 0, 0.08);
+}
+.form-box input{
+    background: rgba(125, 73, 248, 0.144);
+    width: 288px;
+    height: 45px;
+    border: 0;
+    outline: 0;
+    border-radius: 7px;
+    padding-left: 13px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(28, 111, 227, 0.15);
+}
+.form-box input::placeholder{
+    color: #77A9EE;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.input-field i{
+    position: absolute;
+}
+.icon {
+    position: relative;
+    right: 53px;
+    font-size: 34px;
+    padding-top: 5px;
+    color: rgba(125, 73, 248,0.15);
+}
+.fa-user{
+    padding-right:5px;
+}
+
+.btn-field{
+    padding: 86px 0px 53px 0px;
+    width:100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btn-field p{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 100;
+    font-style: italic;
+    align-items: center;
+}
+.btn-field button.signUpBtn{
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 500;
+    color: #fff;
+    background: rgba(28, 111, 227,0.15);
+    border: none;
+    width: 125px;
+    height: 60px;
+    border-radius: 15px;
+    box-shadow: 0px -2px 9px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+}
+.btn-field button.disable{
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 500;
+    color: #fff;
+    background: transparent;
+    border: 1px solid rgba(125, 73, 248,0.15);
+    width: 125px;
+    height: 60px;
+    border-radius: 15px;
+    box-shadow: 0px -2px 9px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+}
+
 .form-box .balance>h4{
     font-size: 20px;
     margin-bottom: 30px;
@@ -42,6 +133,9 @@
     border-radius: 5px;
     width: 70%;
 }
+
+
+
 .balance{
     display: flex;
     justify-content: center;
@@ -51,27 +145,7 @@
     justify-content: space-around;
 }
 
-.input-field{
-    background: #eaeaea;
-    margin: 15px 0;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    max-height: 65px;
-    transition: max-height 0.5s;
-    overflow: hidden;
-}
-input{
-    width:100%;
-    background: transparent;
-    border: 0;
-    outline: 0;
-    padding: 18px 15px;
-}
-.input-field i{
-    margin-left: 15px;
-    color: #999;
-}
+
 form p{
     text-align: left;
     font-size: 13px;
@@ -82,27 +156,4 @@ form p a{
     color: #fff;
 }
 
-.btn-field{
-    width:100%;
-    display: flex;
-    justify-content: space-between;
-}
-.btn-field button{
-    flex-basis: 48%;
-    background: #2480f8;
-    color:#fff;
-    height: 40px;
-    border-radius: 20px;
-    border: 0;
-    outline: 0;
-    cursor: pointer;
-    transition: background 1s;
-}
-.btn-field button.disable{
-    background: #eaeaea;
-    color: #555;
-}
 
-.input-group{
-    height: 280px ;
-}
