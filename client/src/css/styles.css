@@ -254,31 +254,53 @@ span button{
     border: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-form p{
-    text-align: left;
-    font-size: 13px;
-    color: #bebebe;
+/*deposit section*/
+.formDeposit{
+    padding: 63px 0px 0px 0px;
 }
-form p a{
-    text-decoration: none;
+.depositInputForm{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.input-group{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.input-group h2{
+    font-size: 32px;
+    font-weight: 700;
+    color: #B99CFC;
+    margin-bottom: 10px;
+}
+.btn-field{
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    width: 100%;
+    padding: 0px 16px 0px 16px;
+    margin-bottom: 35px;
+}
+.acceptBtn{
+    width: 143px;
+    height: 60px;
+    background:#1BC590;
+    border: none;
+    font-size: 16px;
     color: #fff;
+    border-radius: 15px;
 }
-
-
+.goBack{
+    width: 143px;
+    height: 60px;
+    background: rgba(201, 41, 41,0.17);
+    border: none;
+    border-radius: 15px;
+}
+.goBack a{
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+}
