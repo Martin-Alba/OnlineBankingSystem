@@ -10,25 +10,43 @@
 
 <body>
   <section class="container">
-    <article class="form-box">
-      <h2 id="usernameGlobal"></h2>
-      <div class="balance">
-        <h4 id="totalBalance"></h4>
+    <h5 class="logoOBS">ONLINE BANKING SYSTEM</h5>
+    <div class="container-background">
+      <div class="items-container">
+        <span class="avatar"><img src="../assets/avatar.png" alt="avatar"></span>
+        <h2 id="usernameGlobal"></h2>
       </div>
-      <div class="buttons-wrapper">
-        <form action="" id="userinfoWithdraw">
+      <div class="logoutContainer">
+        <span class="btn-logout"></span>
+      </div>
+    </div>
+
+
+
+
+    <div class="form-boxBackground">
+      <article class="form-box formDeposit">
+        <div class="balance">
+          <p class="balance-text">BALANCE</p>
+          <h4 id="totalBalance"></h4>
+        </div>
+
+        <form class="depositInputForm" action="" id="userinfoWithdraw">
           <div class="input-group">
             <div class="input-field">
-              <input type="number" placeholder="Amount to withdraw" id="withdrawAmount" name="withdrawAmount" required>
+              <h2 class="sectionName">WHITDRAW</h2>
+              <input type="number" placeholder="Insert amount" id="withdrawAmount" name="withdrawAmount" required>
             </div>
           </div>
-          <div class="btn-field">
-            <button type="submit" id="withdrawSubmit" data-action="withdrawSubmit">Withdraw</button>
-            <button type="button" class="disable"><a href="./home.html">Go back</a></button>
+
+
+          <div class="btn-field2">
+            <button type="submit" class="acceptBtn" id="withdrawSubmit" data-action="withdrawSubmit">CONFIRM</button>
+            <button type="button" class="goBack"><a href="./home.html">CANCEL</a></button>
           </div>
         </form>
+      </article>
       </div>
-    </article>
   </section>
   <script src="../scripts/withdraw.js"></script>
   <script src="../scripts/logout.js"></script>

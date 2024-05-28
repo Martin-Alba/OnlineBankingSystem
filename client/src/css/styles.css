@@ -298,6 +298,7 @@ span button{
     font-size: 16px;
     color: #fff;
     border-radius: 15px;
+    cursor: pointer;
 }
 .goBack{
     width: 143px;
@@ -305,6 +306,7 @@ span button{
     background: rgba(201, 41, 41,0.17);
     border: none;
     border-radius: 15px;
+    cursor: pointer;
 }
 .goBack a{
     font-size: 16px;
