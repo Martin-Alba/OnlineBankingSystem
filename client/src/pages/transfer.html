@@ -10,29 +10,43 @@
 
 <body>
   <section class="container">
-    <article class="form-box">
-      <h2 id="usernameGlobal"></h2>
+    <h5 class="logoOBS">ONLINE BANKING SYSTEM</h5>
+    <div class="container-background">
+      <div class="items-container">
+        <span class="avatar"><img src="../assets/avatar.png" alt="avatar"></span>
+        <h2 id="usernameGlobal"></h2>
+      </div>
+
+      <div class="logoutContainer">
+        <span class="btn-logout"></span>
+      </div>
+    </div>
+
+
+  <div class="form-boxBackground">
+    <article class="form-box formDeposit">
       <div class="balance">
+        <p class="balance-text">BALANCE</p>
         <h4 id="totalBalance"></h4>
       </div>
-      <div class="buttons-wrapper">
-        <form action="" id="userinfoTransfer">
+
+
+        <form class="depositInputForm" action="" id="userinfoTransfer">
           <div class="input-group">
             <div class="input-field">
+              <h2 class="sectionName">TRANSFER</h2>
               <input type="text" placeholder="Transfer To" id="transferToUsername" name="transferToUsername" required>
-            </div>
-
-            <div class="input-field">
               <input type="number" placeholder="Amount" id="transferAmount" name="transferAmount" required>
             </div>
           </div>
-          <div class="btn-field">
-            <button type="submit" id="transferSubmit" data-action="transferSubmit">Transfer</button>
-            <button type="button" class="disable"><a href="./home.html">Go back</a></button>
+
+          <div class="btn-field2">
+            <button type="submit" class="acceptBtn" id="transferSubmit" data-action="transferSubmit">CONFIRM</button>
+            <button type="button" class="goBack"><a href="./home.html">CANCEL</a></button>
           </div>
         </form>
-      </div>
     </article>
+  </div>
   </selection>
   <script src="../scripts/transfer.js"></script>
   <script src="../scripts/logout.js"></script>
