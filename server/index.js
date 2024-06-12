@@ -6,6 +6,7 @@ import cors from 'cors'
 import { startServer } from './src/config.js'
 import userRoutes from './src/routes/user.routes.js'
 import operationRoutes from './src/routes/operation.routes.js'
+import ticketRoutes from './src/routes/tickets.routes.js'
 import { authenticateJWT } from './src/middleware/protected-routes.middleware.js'
 
 const app = express()
@@ -24,5 +25,6 @@ app.get('/', async (req, res) => {
 
 app.use('/api/users', userRoutes)
 app.use('/api/banking-operation', authenticateJWT, operationRoutes)
+app.use('/api/tickets', authenticateJWT, ticketRoutes)
 
 startServer(app)

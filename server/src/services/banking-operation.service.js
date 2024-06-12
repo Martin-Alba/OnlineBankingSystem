@@ -1,4 +1,5 @@
 import UserController from '../controllers/user.controller.js'
+import TicketController from '../controllers/tickets.controller.js'
 
 export const depositMoney = async (req, res) => {
   const { username, amount } = req.body
@@ -11,6 +12,9 @@ export const depositMoney = async (req, res) => {
     const depositAmount = parseFloat(amount)
     user.balance += depositAmount
     await UserController.updateUser(user)
+
+    const ticketDetails = { operation: 'Deposit', username, amount: depositAmount }
+    await TicketController.createTicket(username, ticketDetails)
 
     return res.status(200).json({ success: true, message: 'Money deposited successfully' })
   } catch (err) {
@@ -28,8 +32,12 @@ export const withdrawMoney = async (req, res) => {
 
     if (user.balance < amount) return res.status(400).json({ success: false, message: 'Insufficient balance' })
 
-    user.balance -= amount
+    const withdrawAmount = parseFloat(amount)
+    user.balance -= withdrawAmount
     await UserController.updateUser(user)
+
+    const ticketDetails = { operation: 'Withdraw', username, withdrawAmount }
+    await TicketController.createTicket(username, ticketDetails)
 
     return res.status(200).json({ success: true, message: 'Money withdrawn successfully' })
   } catch (err) {
@@ -76,7 +84,14 @@ export const transferMoney = async (req, res) => {
     toUser.balance += transferAmount
 
     await UserController.updateUser(fromUser)
-    await UserController.updateUser(toUser)
+
+    const ticketDetails = { operation: 'Transfer', fromUsername, toUsername, amount: transferAmount }
+    const ticket = await TicketController.createTicket(fromUsername, ticketDetails)
+
+    if (ticket) {
+      toUser.tickets.push(ticket)
+      await UserController.updateUser(toUser)
+    }
 
     return res.status(200).json({ success: true, message: 'Money transferred successfully' })
   } catch (err) {
