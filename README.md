@@ -86,6 +86,11 @@ Obtain user tickets.
 - **Method:** GET
 - **Endpoint:** `http://localhost:9998/api/tickets/${id}`
 - **Return:**
+- - **Body:**
+  ```json
+  {
+    "sessionId": "9e0a9db1-03b0-4f8d-ae95-4d6bbdaed717"
+  }
  ```json
   {
     [
