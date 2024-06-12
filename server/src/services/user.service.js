@@ -68,7 +68,8 @@ export const createUser = async (username, password) => {
       password: hashedPassword,
       failedLoginAttempts: 0,
       lockUntil: null,
-      balance: 2000
+      balance: 2000,
+      tickets: []
     }
 
     await addUser(user)
