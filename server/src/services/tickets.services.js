@@ -31,7 +31,6 @@ export const getTicketsById = async (req, res) => {
     const user = await UserController.findUserById(id)
     if (!user) return res.status(404).send({ message: 'User not found' })
 
-    console.log(user.tickets)
     return res.status(200).json(user.tickets)
   } catch (err) {
     console.error(err)

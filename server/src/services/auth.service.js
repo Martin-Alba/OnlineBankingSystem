@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken'
 import UserController from '../controllers/user.controller.js'
 import { comparePassword } from '../utils/utils.js'
+import cookieParser from 'cookie-parser'
 
 export const Register = async (req, res) => {
   const { username, password } = req.body
@@ -43,6 +44,7 @@ export const Login = async (req, res) => {
     user.lockUntil = null
 
     await UserController.updateUser(user)
+    res.cookie('sessionId', `${user.id}`, { maxAge: 900000, secure: true, httpOnly: true })
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' })
     res.status(200).json({ success: true, message: 'Login success', id: user.id, token })
   } catch (err) {

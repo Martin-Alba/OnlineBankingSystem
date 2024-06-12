@@ -3,6 +3,7 @@ import bodyParser from 'body-parser'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
 import cors from 'cors'
+import cookieParser from 'cookie-parser'
 import { startServer } from './src/config.js'
 import userRoutes from './src/routes/user.routes.js'
 import operationRoutes from './src/routes/operation.routes.js'
@@ -18,6 +19,7 @@ app.use(express.static(`${__dirname}/../client`))
 app.use(cors())
 app.options('*', cors())
 app.use(bodyParser.json())
+app.use(cookieParser())
 
 app.get('/', async (req, res) => {
   res.json({ msg: 'Hello World' })
