@@ -3,7 +3,6 @@ const PORT = 9998
 const handleButtonClick = (titleElement, titleValue, buttonToAddClass, buttonToRemoveClass) => {
   titleElement.innerText = titleValue
   buttonToAddClass.classList.add('disable')
-  buttonToRemoveClass.classList.remove('disable')
 }
 
 document.addEventListener('DOMContentLoaded', function () {
