@@ -261,6 +261,11 @@ span button{
     background:transparent;
     border: none;
 }
+.buttons-wrapper button a{
+display: block;
+padding: 15px;
+}
+
 
 /*deposit section*/
 .formDeposit{
@@ -308,9 +313,16 @@ span button{
     border: none;
     border-radius: 15px;
     cursor: pointer;
+    display: flex;
 }
 .goBack a{
     font-size: 16px;
     color: #fff;
     text-decoration: none;
+    display: block;
+    width: 143px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
