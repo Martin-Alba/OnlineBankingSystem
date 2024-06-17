@@ -40,6 +40,7 @@ const fetchTransfer = async (amount, toUsername) => {
     )
   } catch (error) {
     console.error(error)
+    createModalError()
   }
 }
 
@@ -61,7 +62,7 @@ document.getElementById('userinfoTransfer').addEventListener('submit', async (ev
     const amount = document.getElementById('transferAmount').value
     const toUsername = document.getElementById('transferToUsername').value
     await fetchTransfer(amount, toUsername)
-    createModal()
+    createModalSuccess()
     displayBalance()
     document.getElementById('transferAmount').value = ''
     document.getElementById('transferToUsername').value = ''
@@ -70,7 +71,7 @@ document.getElementById('userinfoTransfer').addEventListener('submit', async (ev
   }
 })
 
-const createModal = () => {
+const createModalSuccess = () => {
   const div = document.createElement('div')
   div.className = 'bgSucess'
 
@@ -87,6 +88,40 @@ const createModal = () => {
   span.textContent = 'success'
 
   p2.appendChild(span)
+
+  article.appendChild(p1)
+  article.appendChild(p2)
+
+  div.appendChild(article)
+
+  document.body.appendChild(div)
+
+  setTimeout(() => {
+    div.remove()
+  }, 3000)
+}
+
+const createModalError = () => {
+  const div = document.createElement('div')
+  div.className = 'bgError'
+
+  const article = document.createElement('article')
+  article.className = 'cardError'
+
+  const p1 = document.createElement('p')
+  p1.textContent = 'There was an'
+
+  const span1 = document.createElement('span')
+  span1.textContent = ' error'
+
+  const p2 = document.createElement('p')
+  p2.textContent = 'in your'
+
+  const span2 = document.createElement('span')
+  span2.textContent = ' request'
+
+  p1.appendChild(span1)
+  p2.appendChild(span2)
 
   article.appendChild(p1)
   article.appendChild(p2)

@@ -37,13 +37,13 @@ const handleFetch = async (action, dataForm) => {
     return response
   } catch (err) {
     console.error(err)
+    createModalError()
   }
 }
 
 const handleResponse = async (response, action, dataForm) => {
   if (!response.ok) {
-    const errorData = await response.json()
-    window.alert(errorData.message)
+    createModalAlert()
     return
   }
 
@@ -60,38 +60,7 @@ const storageDataLogin = (data, dataForm) => {
 
 const storageDataRegister = () => {
   window.sessionStorage.clear()
-
-  const createModal = () => {
-    const div = document.createElement('div')
-    div.className = 'bgSucess'
-
-    const article = document.createElement('article')
-    article.className = 'cardSuccess'
-
-    const p1 = document.createElement('p')
-    p1.textContent = 'User created'
-
-    const p2 = document.createElement('p')
-    p2.textContent = 'with '
-
-    const span = document.createElement('span')
-    span.textContent = 'success'
-
-    p2.appendChild(span)
-
-    article.appendChild(p1)
-    article.appendChild(p2)
-
-    div.appendChild(article)
-
-    document.body.appendChild(div)
-
-    setTimeout(() => {
-      div.remove()
-    }, 3000)
-  }
-
-  createModal()
+  createModalSuccess()
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -111,3 +80,93 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 })
+
+const createModalSuccess = () => {
+  const div = document.createElement('div')
+  div.className = 'bgSucess'
+
+  const article = document.createElement('article')
+  article.className = 'cardSuccess'
+
+  const p1 = document.createElement('p')
+  p1.textContent = 'User created'
+
+  const p2 = document.createElement('p')
+  p2.textContent = 'with '
+
+  const span = document.createElement('span')
+  span.textContent = 'success'
+
+  p2.appendChild(span)
+
+  article.appendChild(p1)
+  article.appendChild(p2)
+
+  div.appendChild(article)
+
+  document.body.appendChild(div)
+
+  setTimeout(() => {
+    div.remove()
+  }, 3000)
+}
+
+const createModalError = () => {
+  const div = document.createElement('div')
+  div.className = 'bgError'
+
+  const article = document.createElement('article')
+  article.className = 'cardError'
+
+  const p1 = document.createElement('p')
+  p1.textContent = 'There was an'
+
+  const span1 = document.createElement('span')
+  span1.textContent = ' error'
+
+  const p2 = document.createElement('p')
+  p2.textContent = 'in your'
+
+  const span2 = document.createElement('span')
+  span2.textContent = ' request'
+
+  p1.appendChild(span1)
+  p2.appendChild(span2)
+
+  article.appendChild(p1)
+  article.appendChild(p2)
+
+  div.appendChild(article)
+
+  document.body.appendChild(div)
+
+  setTimeout(() => {
+    div.remove()
+  }, 3000)
+}
+
+const createModalAlert = (errorData) => {
+  const div = document.createElement('div')
+  div.className = 'bgError'
+
+  const article = document.createElement('article')
+  article.className = 'cardError'
+
+  const p1 = document.createElement('p')
+  p1.textContent = 'User already'
+
+  const span = document.createElement('span')
+  span.textContent = ' exists'
+
+  p1.appendChild(span)
+
+  article.appendChild(p1)
+
+  div.appendChild(article)
+
+  document.body.appendChild(div)
+
+  setTimeout(() => {
+    div.remove()
+  }, 2000)
+}
