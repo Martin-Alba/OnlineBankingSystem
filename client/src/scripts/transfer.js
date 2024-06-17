@@ -61,6 +61,7 @@ document.getElementById('userinfoTransfer').addEventListener('submit', async (ev
     const amount = document.getElementById('transferAmount').value
     const toUsername = document.getElementById('transferToUsername').value
     await fetchTransfer(amount, toUsername)
+    createModal()
     displayBalance()
     document.getElementById('transferAmount').value = ''
     document.getElementById('transferToUsername').value = ''
@@ -68,3 +69,33 @@ document.getElementById('userinfoTransfer').addEventListener('submit', async (ev
     console.error(error)
   }
 })
+
+const createModal = () => {
+  const div = document.createElement('div')
+  div.className = 'bgSucess'
+
+  const article = document.createElement('article')
+  article.className = 'cardSuccess'
+
+  const p1 = document.createElement('p')
+  p1.textContent = 'Transfer made'
+
+  const p2 = document.createElement('p')
+  p2.textContent = 'with '
+
+  const span = document.createElement('span')
+  span.textContent = 'success'
+
+  p2.appendChild(span)
+
+  article.appendChild(p1)
+  article.appendChild(p2)
+
+  div.appendChild(article)
+
+  document.body.appendChild(div)
+
+  setTimeout(() => {
+    div.remove()
+  }, 3000)
+}
