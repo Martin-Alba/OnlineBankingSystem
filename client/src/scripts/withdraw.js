@@ -58,9 +58,40 @@ document.getElementById('userinfoWithdraw').addEventListener('submit', async (ev
   try {
     const amount = document.getElementById('withdrawAmount').value
     await fetchWithdraw(amount)
+    createModal()
     displayBalance()
     document.getElementById('withdrawAmount').value = ''
   } catch (error) {
     console.error(error)
   }
 })
+
+const createModal = () => {
+  const div = document.createElement('div')
+  div.className = 'bgSucess'
+
+  const article = document.createElement('article')
+  article.className = 'cardSuccess'
+
+  const p1 = document.createElement('p')
+  p1.textContent = 'Withdraw made'
+
+  const p2 = document.createElement('p')
+  p2.textContent = 'with '
+
+  const span = document.createElement('span')
+  span.textContent = 'success'
+
+  p2.appendChild(span)
+
+  article.appendChild(p1)
+  article.appendChild(p2)
+
+  div.appendChild(article)
+
+  document.body.appendChild(div)
+
+  setTimeout(() => {
+    div.remove()
+  }, 3000)
+}

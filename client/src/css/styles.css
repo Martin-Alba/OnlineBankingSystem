@@ -326,3 +326,40 @@ padding: 15px;
     align-items: center;
     justify-content: center;
 }
+
+/* modals */
+
+.bgSucess {
+    background: linear-gradient(360deg, rgba(18, 130, 95, 0.50) 30.38%, rgba(4, 28, 20, 0.50) 97.43%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardSuccess {
+    width: 372px;
+    height: 211px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(119.77deg, rgba(18, 130, 95, 0.75) 36.38%, rgba(4, 28, 20, 0.75) 97.43%);
+}
+
+.cardSuccess p {
+    font-size: 34px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.cardSuccess span {
+    font-weight: 600;
+    font-style: italic;
+}

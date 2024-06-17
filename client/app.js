@@ -60,7 +60,38 @@ const storageDataLogin = (data, dataForm) => {
 
 const storageDataRegister = () => {
   window.sessionStorage.clear()
-  window.alert('User created successfully')
+
+  const createModal = () => {
+    const div = document.createElement('div')
+    div.className = 'bgSucess'
+
+    const article = document.createElement('article')
+    article.className = 'cardSuccess'
+
+    const p1 = document.createElement('p')
+    p1.textContent = 'User created'
+
+    const p2 = document.createElement('p')
+    p2.textContent = 'with '
+
+    const span = document.createElement('span')
+    span.textContent = 'success'
+
+    p2.appendChild(span)
+
+    article.appendChild(p1)
+    article.appendChild(p2)
+
+    div.appendChild(article)
+
+    document.body.appendChild(div)
+
+    setTimeout(() => {
+      div.remove()
+    }, 3000)
+  }
+
+  createModal()
 }
 
 document.addEventListener('DOMContentLoaded', () => {
